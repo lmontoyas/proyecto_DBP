@@ -1,6 +1,7 @@
 package com.example.demo.calendario.model;
 
 import com.example.demo.reserva.model.Reserva;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
@@ -56,6 +57,7 @@ public class Calendario {
         this.hora = hora;
     }
 
+    @JsonIgnore
     public List<Reserva> getReservas() {
         return reservas;
     }

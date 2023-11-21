@@ -19,8 +19,8 @@ public class ReservaController {
     private ReservaService reservaService;
 
     @GetMapping
-    public ResponseEntity<List<Reserva>> obtenerTodasLasReservas() {
-        List<Reserva> reservas = reservaService.obtenerTodasLasReservas();
+    public ResponseEntity<List<Reserva>> obtenerTodasLasReservas(@RequestParam Long id) {
+        List<Reserva> reservas = reservaService.obtenerDetallesReservasUsuario(id);
         return ResponseEntity.ok(reservas);
     }
 

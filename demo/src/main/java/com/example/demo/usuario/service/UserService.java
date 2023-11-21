@@ -29,6 +29,11 @@ public class UserService {
         return username -> userRepository.findByEmail(username);
     }
 
+    public User getOneUser(Long id){
+        User user = userRepository.findById(id).orElse(null);
+        return user;
+    }
+
     public List<User> getAllUsers() {
         List<User> users = userRepository.findAll();
 

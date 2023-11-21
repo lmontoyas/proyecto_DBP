@@ -34,12 +34,10 @@ public class Reserva {
 
     @ManyToOne
     @JoinColumn(name = "cancha_id")
-    @JsonIgnore
     private Cancha cancha;
 
     @ManyToOne
     @JoinColumn(name = "calendario_id")
-    @JsonIgnore
     private Calendario calendario;
 
     public Reserva() {

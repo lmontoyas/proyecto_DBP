@@ -47,6 +47,10 @@ public class CanchaService {
         return optionalCancha.get();
     }
 
+    public Page<Cancha> filtrarCanchasPorTipo(String nombreTipo, String grassTipo, Pageable pageable) {
+        return canchaRepository.findByTipoNombreAndTipoGrass(nombreTipo, grassTipo, pageable);
+    }
+
     public String crearCancha(NombrePrecioHoraComplejoTipoDTO nombrePrecioHoraComplejoTipoDTO) {
         Cancha cancha = modelMapper.map(nombrePrecioHoraComplejoTipoDTO, Cancha.class);
         cancha.setEsActivo(true);

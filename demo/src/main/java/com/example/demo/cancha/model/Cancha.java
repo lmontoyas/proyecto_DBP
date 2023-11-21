@@ -103,6 +103,7 @@ public class Cancha {
         this.complejo = complejo;
     }
 
+    @JsonIgnore
     public List<Reserva> getReservas() {
         return reservas;
     }

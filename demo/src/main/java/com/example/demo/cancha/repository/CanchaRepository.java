@@ -14,4 +14,6 @@ public interface CanchaRepository extends JpaRepository<Cancha,Long> {
     Cancha findByNombre(String nombre);
 
     Page<Cancha> findByComplejo(Complejo complejo, Pageable pageable);
+
+    Page<Cancha> findByTipoNombreAndTipoGrass(String nombre, String grass, Pageable pageable);
 }

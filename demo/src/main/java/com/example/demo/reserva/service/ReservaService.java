@@ -7,6 +7,8 @@ import com.example.demo.complejo.model.Complejo;
 import com.example.demo.reserva.dto.FechaHoraUserCanchaCalendarioDTO;
 import com.example.demo.reserva.model.Reserva;
 import com.example.demo.reserva.repository.ReservaRepository;
+import com.example.demo.usuario.model.User;
+import com.example.demo.usuario.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -30,6 +32,9 @@ public class ReservaService {
     @Autowired
     private CanchaService canchaService;
 
+    @Autowired
+    private UserService userService;
+
     public List<Reserva> obtenerTodasLasReservas() {
         return reservaRepository.findAll();
     }
@@ -37,6 +42,12 @@ public class ReservaService {
     public Reserva obtenerReservaPorId(Long id) {
         Optional<Reserva> optionalReserva = reservaRepository.findById(id);
         return optionalReserva.orElse(null);
+    }
+
+    public List<Reserva> obtenerDetallesReservasUsuario(Long userId) {
+        User user = userService.getOneUser(userId);
+        List<Reserva> reservas = reservaRepository.findByUser(user);
+        return reservas;
     }
 
     public boolean validarReserva(Cancha cancha, LocalDate fecha, Calendario calendario){
