@@ -1,0 +1,12 @@
+.signup-page {
+    background-image: url('background-image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; 
+    height: 100vh;
+}
+
+.error-message {
+    color: red; /* Color de texto rojo */
+    font-weight: bold; /* Texto en negrita */
+    margin-top: 10px; /* Espacio superior para separarlo de otros elementos */
+  }
